@@ -38,6 +38,22 @@ class LinkedList {
         }
     }
 
+    insertAfter(item, insertAfterItem) {
+        if (!this.head) {
+            this.insertFirst(item);
+        }
+        else { 
+            let currNode = this.head;
+            if (!currNode.next) {
+                this.insertLast(item);
+            }
+            while (currNode.value !== insertAfterItem) {
+                currNode = currNode.next;
+            }
+            currNode.next = new _Node(item, currNode.next);
+        }
+    }
+
     find(item) {
         // start at the head
         let currNode = this.head;
