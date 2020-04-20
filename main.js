@@ -15,7 +15,12 @@ function main() {
     let current = SSL.head;
 
     while (current !== null) {
-        console.log('current', current.value);
+        // if (!current.next) {
+            // console.log('current', current.value, 'next null')
+        // }
+        // else {
+            console.log('current', current.value);
+        // }
         current = current.next;
     }
 }
