@@ -12,6 +12,8 @@ function main() {
     SSL.remove('Husker');
     SSL.insertBefore('Athena', 'Boomer');
     SSL.insertAfter('HotDog', 'Helo');
+    SSL.insertAt('Kat', 3);
+    SSL.remove('Tauhida');
 
     let current = SSL.head;
 

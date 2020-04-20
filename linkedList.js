@@ -54,6 +54,18 @@ class LinkedList {
         }
     }
 
+    insertAt(item, insertAtPosition) {
+        if (!this.head) {
+            console.log(`There is no position ${insertAtPosition}`)
+        }
+        let currNode = this.head;
+        for ( let i = 1; i < insertAtPosition; i++ ) {
+            currNode = currNode.next;
+        }
+        // console.log('current position', currNode);
+        this.insertBefore(item, currNode.value);
+    }
+
     find(item) {
         // start at the head
         let currNode = this.head;
