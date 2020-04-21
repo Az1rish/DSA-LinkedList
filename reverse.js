@@ -21,11 +21,12 @@ function reverse(list) {
         let current = list.head;
     
         while (current !== null) {
-            console.log(current.value);
+            console.log('current', current.value, 'next', current.next);
             current = current.next;
         }
     }
-    console.log(display(newList));
+    display(newList);
+    return newList;
 }
 
 reverse(main());
