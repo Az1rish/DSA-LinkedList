@@ -3,24 +3,29 @@ const main = require('./main');
 
 function reverse(list) {
     let current = list.head;
-    // console.log(current);
     let newList = new linkedList();
-    let newNode = list.head;
-    while (current) {
-        if (current.next === null) {
-            newNode.next = newNode;
-            newNode = current;
-            newNode = newList.head;
-            console.log('newNode', newNode, 'current', current);
-        } else {
-            newNode.next = newNode;
-            newNode = current;
+    function findLast(linkedList) {
+        let current = linkedList.head;
+        while (current) {
+            if (current.next === null) {
+                return current;
+            }
             current = current.next;
-            console.log('newNode', newNode, 'current', current);
         }
-        
     }
-    console.log(newList);
+    while (findLast(list)) {
+        newList.insertLast(findLast(list).value);
+        list.remove(findLast(list).value);
+    }
+    function display(list) {
+        let current = list.head;
+    
+        while (current !== null) {
+            console.log(current.value);
+            current = current.next;
+        }
+    }
+    console.log(display(newList));
 }
 
 reverse(main());
