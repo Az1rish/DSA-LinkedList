@@ -9,10 +9,24 @@ function main() {
     SSL.insertLast('Husker');
     SSL.insertLast('Starbuck');
     SSL.insertLast('Tauhida');
-    SSL.insertFirst('Husker');
 
     return SSL;
 }
+
+function makeCycle(list) {
+    let current = list.head;
+    let prev = null;
+
+    while (current) {
+        prev = current;
+        current = current.next;
+    }
+    prev.next = list.head;
+    // console.log(list)
+    return list;
+}
+
+// makeCycle(main());
 
 function display(list) {
     let current = list.head;
@@ -23,4 +37,22 @@ function display(list) {
     }
 }
 
-display(main());
+// display(makeCycle(main()));
+
+function hasCycle(list) {
+    let slow = list.head;
+    let fast = list.head;
+
+    while (fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow === fast) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+console.log(hasCycle(makeCycle(main())));
+console.log(hasCycle(main()));
