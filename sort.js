@@ -13,26 +13,28 @@ function main() {
 
 }
 
-// console.log(main());
-
 function sort(list) {
-    // if (!list.next) {
-        // return list;
-    // }
-
-    let curr = list.head;
-    // console.log('curr', curr)
-    while (curr.next) {
-        // console.log('loop', curr.value)
-        if (curr.value > curr.next.value) {
-            list.insertLast(curr.value);
-            list.remove(curr.value);
+    let temp = list.head;
+    
+    while (temp) {
+        let min = temp;
+        let r = temp.next;
+        while (r) {
+            if (min.value > r.value) {
+                min = r;
+            }
+            
+            r = r.next;
         }
-        console.log('curr', curr.value, 'head', list.head.value);
-        curr = curr.next;
+
+        let x = temp.value;
+        temp.value = min.value;
+        min.value = x;
+        temp = temp.next;
     }
    
-    // console.log(list);
+    return list;
 }
 
-sort(main());
+console.log('list', sort(main()));
+
